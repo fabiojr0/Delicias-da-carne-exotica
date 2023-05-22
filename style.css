@@ -48,6 +48,9 @@ body {
 .jcaround {
     justify-content: space-around;
 }
+.jcevenly {
+    justify-content: space-evenly;
+}
 
 .jcbet {
     justify-content: space-between;
@@ -61,7 +64,6 @@ nav {
     display: flex;
     justify-content: space-between;
     position: fixed;
-    padding:0 80px;
     overflow: hidden;
     z-index: 999;
     transition: .4s;
@@ -71,13 +73,9 @@ h1, h2, h3, p {
     filter: drop-shadow(1px 1px 2px var(--sombra));
 }
 
-.vidro {
-    background: rgba(255, 255, 255, 0.315);
-    backdrop-filter: blur( 2px );
-    -webkit-backdrop-filter: blur( 2px );
-}
 
 .vidro ul li a {
+    text-decoration: underline;
     color: var(--preto);
 }
 
@@ -99,6 +97,7 @@ nav ul li a {
     color: var(--branco);
     font-size: 24px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 main {
@@ -189,7 +188,7 @@ h1 {
     border-bottom: 3px solid var(--vermelho);
 }
 
-.selected {
+.selected-category{
     border-bottom: 3px solid var(--preto);
 }
 
@@ -277,26 +276,6 @@ h1 {
 }
 
 
-.faq h2 {
-    color: var(--vermelho);
-    font-size: 30px;
-
-}
-
-.faq h3 {
-    color: var(--preto);
-    font-size: 24px;
-    filter: drop-shadow(0px 0px 0px);
-}
-
-.faq ul {
-    width: 50%;
-    list-style: none;
-}
-.faq li {
-    padding: 20px;
-}
-
 .faq-imgs img {
     height: 80vh;
     border-radius: 15px;
@@ -309,7 +288,10 @@ h1 {
     width: 100%;
     height: 100vh;
 }
-
+.faq .linha {
+    width: 100%;
+    height: 100%;
+}
 
 .contatos {
     height: 100vh;
@@ -358,20 +340,6 @@ input[type=text]:focus {
     color: var(--preto);
 }
 
-select {
-    cursor: pointer;
-    width: 200px;
-    border-radius: 4px;
-    font-size: 25px;
-    border:3px solid var(--vermelho);
-    color: var(--vermelho);
-    font-weight: 600;
-}
-
-select:focus {
-    border:3px solid var(--preto);
-    color: var(--preto);
-}
 
 #carnePrefLabel {
   font-size: 26px;
@@ -391,72 +359,6 @@ label {
     font-size: 20px;
     color: var(--vermelho);
     cursor: pointer;
-}
-
-input[type="radio"] {
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--branco);
-    margin: 0;
-    margin-right: 9px;
-    font: inherit;
-    color: var(--vermelho);
-    width: 25px;
-    height: 25px;
-    border: 0.15em solid var(--vermelho);
-    border-radius: 50%;
-    transform: translateY(-0.075em);
-    display: grid;
-    place-content: center;
-}
-  
-input[type="radio"]::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(--vermelho);
-}
-  
-input[type="radio"]:checked::before {
-    transform: scale(2);
-}
-  
-input[type="radio"]:focus {
-    outline: max(2px, 0.15em) solid currentColor;
-    outline-offset: max(2px, 0.15em);
-}
-  
-
-input[type="checkbox"] {
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--branco);
-    margin: 0;
-    margin-right: 9px;
-    color: var(--vermelho);
-    width: 25px;
-    height: 25px;
-    border: 2px solid var(--vermelho);
-    display: grid;
-    place-content: center;
-}
-  
-input[type="checkbox"]::before {
-    content: "✓";
-    transition: 120ms transform ease-in-out;
-    font-size: 30px;
-    font-weight: 800;
-    transform:scale(0);
-    border: 0;
-}
-  
-input[type="checkbox"]:checked::before {
-    transform:scale(1);
 }
 
 .fale-conosco {
@@ -480,8 +382,11 @@ input[type="checkbox"]:checked::before {
 }
 
 #sexo {
-    height: 10px;
+    height: 40px;
     width: 80%;
+}
+#sexo label div{
+    margin-right: 5px;
 }
 
 .infos {

@@ -47,10 +47,10 @@ for (let i = 0; i < 4; i++) {
 
 h2Produtos.forEach(function(h2, index) {
   if (index == tipo) {
-    h2.classList.add("selected")
+    h2.classList.add("selected-category")
   }
   else{
-    h2.classList.remove("selected")
+    h2.classList.remove("selected-category")
   }
 });
 
@@ -82,7 +82,7 @@ navHref.forEach(item => {
     const id = element.getAttribute('href');
     var section
     if (id == null) section = 0;
-    else section = document.querySelector(id).offsetTop - 40;
+    else section = document.querySelector(id).offsetTop;
 
     window.scroll({
       top: section,
@@ -90,3 +90,4 @@ navHref.forEach(item => {
     });
   });
 })
+

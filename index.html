@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delícias da carne exótica</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
@@ -41,7 +42,7 @@
             <h1>Nossos Produtos</h1>
 
             <div class="linha alcenter jcaround produtos-txt">
-                <h2 class="selected" onclick="trocarCarnes(0)">Bovinas</h2>
+                <h2 class="selected-category" onclick="trocarCarnes(0)">Bovinas</h2>
                 <h2 onclick="trocarCarnes(1)">Suínas</h2>
                 <h2 onclick="trocarCarnes(2)">Aves</h2>
                 <h2 onclick="trocarCarnes(3)">Exóticas</h2>
@@ -80,22 +81,40 @@
         <section class="faq coluna jcaround alcenter" id="faq">
             <h1>Perguntas Frequentes</h1>
             <div class="linha jcaround alcenter">
-                <ul>
-                    <li>
-                        <h2>Quando chegam novos produtos ?</h2>
-                        <h3>Todas as quintas-feiras chegam novos produtos.</h3>
-                    </li>
-                    <li>
-                        <h2>Vocês entregam em casa ?</h2>
-                        <h3>Nas compras acima de R$ 50,00 sua encomenda é entregue sem custos adicionais no conforto do
-                            seu lar,
-                            estando ele na região metropolitana do Rio de Janeiro.</h3>
-                    </li>
-                    <li>
-                        <h2>Vocês entregam nos finais de semana ?</h2>
-                        <h3>Não, nossas entregas ocorrem de segunda a sexta.</h3>
-                    </li>
-                </ul>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="item-question">
+                            <h1>Quando chegam novos produtos ?</h1>
+                            <div class="arrow">❯
+                            </div>
+                        </div>
+                        <div class="item-answer">
+                            <p>Todas as quintas-feiras chegam novos produtos.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="item-question">
+                            <h1>Vocês entregam em casa ?</h1>
+                            <div class="arrow">❯
+                            </div>
+                        </div>
+                        <div class="item-answer">
+                            <p>Nas compras acima de R$ 50,00 sua encomenda é entregue sem custos adicionais no conforto do
+                                seu lar,
+                                estando ele na região metropolitana do Rio de Janeiro.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="item-question">
+                            <h1>Vocês entregam nos finais de semana ?</h1>
+                            <div class="arrow">❯
+                            </div>
+                        </div>
+                        <div class="item-answer">
+                            <p>Não, nossas entregas ocorrem de segunda a sexta.</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="faq-imgs">
                     <img src="photos/moço.jpg">
                 </div>
@@ -112,31 +131,41 @@
                             <input type="text" placeholder="Nome">
                             <input type="text" placeholder="Email">
                             <input type="text" placeholder="Telefone">
-                            <label for="carnePref" id="carnePrefLabel"><h3>Carne Preferida:</h3><select name="" id="carnePref">
-                                <option value="Bovina">Bovina</option>
-                                <option value="Suínas">Suínas</option>
-                                <option value="Aves">Aves</option>
-                                <option value="Exóticas">Exóticas</option>
-                            </select>
+                            <label for="carnePref" id="carnePrefLabel"><h3>Carne Preferida:</h3> <div class="options-group">
+                                <div class="seta">
+                                    <div class="selected-option">
+                                        <div class="option">Bovínas</div>
+                                        <span class="arrow">❯</span>
+                                    </div>         
+                                </div>
+                                <div class="options-menu">
+                                    <div class="option">Suínas</div>
+                                    <hr>
+                                    <div class="option">Aves</div>
+                                    <hr>
+                                    <div class="option">Exóticas</div>
+                                </div>
+                            </div>
                             </label>
                         </div>
                         <span class="linha alcenter jcbet sexo" id="sexo">
                             <h3>Sexo: </h3>
-                            <label for="fem"><input type="radio" id="fem" name="sexo"> Feminino</label>
-                            <label for="masc"><input type="radio" id="masc" name="sexo"> Masculino</label>
-                            <label for="no"><input type="radio" id="no" name="sexo"> Não informar</label>
+                            <label for="fem"><div class="radio"></div> Feminino</label>
+                            <label for="masc"><div class="radio"></div> Masculino</label>
+                            <label for="no"><div class="radio"></div> Não informar</label>
                         </span>
                         <span class="infos">
                             <h3>Deseja receber infomações por: </h3>
-                            <label for="todos"><input type="checkbox" id="todos">Todos os meios</label>
-                            <label for="sms"><input type="checkbox" id="sms">SMS</label>
-                            <label for="email"><input type="checkbox" id="email">Email</label>
-                            <label for="liga"><input type="checkbox" id="liga">Ligação</label>
+                            <label for="todos"><div class="checkbox checkAll" id="todos"></div>Todos os meios</label>
+                            <label for="sms"><div class="checkbox" id="sms"></div>SMS</label>
+                            <label for="email"><div class="checkbox" id="email"></div>Email</label>
+                            <label for="liga"><div class="checkbox" id="liga"></div>Ligação</label>
                         </span>
                         <button class="enviar">Enviar</button>
                 </div>
                 <div class="local">
-                    <div style="width: 350px"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Rua%20Volunt%C3%A1rios%20da%20P%C3%A1tria,%20340%20loja%20F%20Botafogo%20-%20Rio%20de%20Janeiro%20-%20RJ+(Del%C3%ADcias%20da%20Carne%20Ex%C3%B3tica)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe></div>
+                    <h2>Localização:</h2>
+                    <div style="width: 350px"><iframe width="100%" height="350px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Rua%20Volunt%C3%A1rios%20da%20P%C3%A1tria,%20340%20loja%20F%20Botafogo%20-%20Rio%20de%20Janeiro%20-%20RJ+(Del%C3%ADcias%20da%20Carne%20Ex%C3%B3tica)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe></div>
                     <h3>Rua Voluntários da Pátria, 340 loja F
                         Botafogo - Rio de Janeiro - RJ</h3>
                 </div>
@@ -151,6 +180,7 @@
     </footer>
     
     <script src="script.js"></script>
+    <script src="components.js"></script>
 </body>
 
 </html>
